@@ -4,9 +4,9 @@ Hydra is a collection of RESTful APIs built with Node.js. Each API communicates 
 ## Node.js with Python
 There a few ways of integrating Node.js with Python. Here we have set the API to spawn a child process upon receiving a GET request.
 
-Advantages:
-* Straightforward for implementation
-* No need for third-party software, e.g. RabbitMQ
+Pros:
+* Straightforward implementation.
+* No need for third-party software, e.g. RabbitMQ.
 
-Disadvantages:
-* Node.js process is binded to its child process. It waits for it untill completion
+Cons:
+* Node.js process is binded to its child process. It waits for it untill completion.
