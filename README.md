@@ -6,7 +6,7 @@ There a few ways of integrating Node.js with Python. Here we have set the API to
 
 Advantages:
 * Straightforward for implementation
-* No need for extra software
+* No need for third-party software, e.g. RabbitMQ
 
 Disadvantages:
 * Node.js process is binded to its child process. It waits for it untill completion
