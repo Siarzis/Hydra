@@ -1,4 +1,5 @@
 var ps = require('python-shell');
+var zerorpc = require('zerorpc');
 var express = require('express');
 var app = express();
 
@@ -13,18 +14,7 @@ app.get('/api', function(req, res) {
 	res.send(ret_value);
 });
 
-// app.get('/api/python', function (req, res) {
-// 	var spawn = require('child_process').spawn;
-// 	// first spawn() argument should be considered in containerization
-// 	var process = spawn('python', ['./testpy.py']);
-
-// 	process.stdout.on('data', function (data) {
-// 		console.log(typeof data);
-// 		res.send(data.toString());
-// 	});
-// });
-
-app.get('/api/python', function (req, res) {
+app.get('/python/process', function (req, res) {
 	var options = {
 		// this path should be considered in containerization
 		pythonPath: "C:/Users/User/Anaconda3/envs/ForecastApp/python.exe"
@@ -33,5 +23,15 @@ app.get('/api/python', function (req, res) {
 	ps.PythonShell.run('./testpy.py', options, function (err, data) {
 		if (err) throw err;
 		res.send(JSON.parse(data[0]));
+	});
+});
+
+app.get('/python/zmq', function (req, res) {
+	var client = new zerorpc.Client();
+	client.connect('tcp://127.0.0.1:2424')
+
+	client.invoke('test', function(error, json_test, more) {
+		res.send(json_test);
+		client.close();
 	});
 });
