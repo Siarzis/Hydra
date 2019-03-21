@@ -4,9 +4,9 @@ const app = express();
 
 // generally, 'res' variable is the return value of every object
 
- const server = app.listen(process.env.PORT || 3000, function () {
-    const port = server.address().port; // finds port number from 'server' variable
-    console.log("App now running on port", port);
+const server = app.listen(process.env.PORT || 3000, function () {
+	const port = server.address().port; // finds port number from 'server' variable
+	console.log("App now running on port", port);
  });
 
 // Function to connect to database and execute query
