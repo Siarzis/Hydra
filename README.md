@@ -19,6 +19,16 @@ Cons:
 
 In this way Node can interact Python while running on different machines via TCP/IP sockets. To facilitate such communication we use ZeroMQ which is a high-performance asynchronous messaging library, according to Wikipedia.
 
+Project Structure:
+```
+node-python/
+           server.js        # Where magic happens!
+           package.json     # The stantard Node.js file for package installation
+           testpy.py        # Python script that just returns a JSON object
+           Dockerfile       # Dockerfile containerizes our simple API
+
+```
+
 ## Node.js with SQL Server
 
 Communicating with SQL Server via Node.js API 
